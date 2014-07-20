@@ -1,0 +1,10 @@
+Profile: Huginn Locations (21)
+Time:  Every 30m
+Enter: Huginn Locations (17)
+A1: Secure Settings [ Configuration:GPS Enabled Package:com.intangibleobject.securesettings.plugin Name:Secure Settings Timeout (Seconds):0 ] 
+A2: Get Location [ Source:GPS Timeout (Seconds):100 Continue Task Immediately:Off Keep Tracking:Off ] 
+A3: Variable Split [ Name:%LOC Splitter:, Delete Base:Off ] 
+A4: Variable Set [ Name:%LOCPOST To:latitude=%LOC1
+longitude=%LOC2 Do Maths:Off Append:Off ] 
+A5: HTTP Post [ Server:Port:Your Huginn Location URL Path: Data / File:%LOCPOST Cookies: User Agent: Timeout:10 Content Type: Output File: Trust Any Certificate:Off ] 
+A6: Secure Settings [ Configuration:GPS Disabled Package:com.intangibleobject.securesettings.plugin Name:Secure Settings Timeout (Seconds):0 ] 
